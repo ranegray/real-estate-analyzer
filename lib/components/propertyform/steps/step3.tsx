@@ -13,7 +13,10 @@ export default function Step3({ step, setStep }) {
           <span className="inline-flex rounded-l-md bg-neutral-300 px-2 text-black">
             $
           </span>
-          <input type="number" className="rounded-r-md px-1 focus:outline-black" />
+          <input type="number" className="w-1/4 px-1 focus:outline-black" />
+          <span className="inline-flex rounded-r-md bg-white px-2 text-black">
+            / year
+          </span>
         </div>
       </div>
       <div className="formInput">
@@ -24,7 +27,71 @@ export default function Step3({ step, setStep }) {
           <span className="inline-flex rounded-l-md bg-neutral-300 px-2 text-black">
             $
           </span>
-          <input type="number" className="rounded-r-md px-1 focus:outline-black" />
+          <input type="number" className="w-1/4 px-1 focus:outline-black" />
+          <span className="inline-flex rounded-r-md bg-white px-2 text-black">
+            / year
+          </span>
+        </div>
+      </div>
+
+      <div className="formInput">
+        <label htmlFor="">HOA fees</label>
+        <div className="flex">
+          <span className="inline-flex rounded-l-md bg-neutral-300 px-2 text-black">
+            $
+          </span>
+          <input type="number" className="w-1/4 px-1 focus:outline-black" />
+          <span className="inline-flex rounded-r-md bg-white px-2 text-black">
+            / month
+          </span>
+        </div>
+      </div>
+      <div className="formInput">
+        <label htmlFor="">Electricity</label>
+        <div className="flex">
+          <span className="inline-flex rounded-l-md bg-neutral-300 px-2 text-black">
+            $
+          </span>
+          <input type="number" className="w-1/4 px-1 focus:outline-black" />
+          <span className="inline-flex rounded-r-md bg-white px-2 text-black">
+            / month
+          </span>
+        </div>
+      </div>
+      <div className="formInput">
+        <label htmlFor="">Water & sewer</label>
+        <div className="flex">
+          <span className="inline-flex rounded-l-md bg-neutral-300 px-2 text-black">
+            $
+          </span>
+          <input type="number" className="w-1/4 px-1 focus:outline-black" />
+          <span className="inline-flex rounded-r-md bg-white px-2 text-black">
+            / month
+          </span>
+        </div>
+      </div>
+      <div className="formInput">
+        <label htmlFor="">Gas</label>
+        <div className="flex">
+          <span className="inline-flex rounded-l-md bg-neutral-300 px-2 text-black">
+            $
+          </span>
+          <input type="number" className="w-1/4 px-1 focus:outline-black" />
+          <span className="inline-flex rounded-r-md bg-white px-2 text-black">
+            / month
+          </span>
+        </div>
+      </div>
+      <div className="formInput">
+        <label htmlFor="">Garbage</label>
+        <div className="flex">
+          <span className="inline-flex rounded-l-md bg-neutral-300 px-2 text-black">
+            $
+          </span>
+          <input type="number" className="w-1/4 px-1 focus:outline-black" />
+          <span className="inline-flex rounded-r-md bg-white px-2 text-black">
+            / month
+          </span>
         </div>
       </div>
 
@@ -38,8 +105,11 @@ export default function Step3({ step, setStep }) {
       <div className="formInput">
         <label htmlFor="">Repairs & maintenance</label>
         <div className="flex">
-          <input type="number" className="rounded-l-md px-1 focus:outline-black" />
-          <span className="inline-flex font-semibold rounded-r-md bg-neutral-300 px-2 text-black">
+          <input
+            type="number"
+            className="w-1/6 rounded-l-md px-1 focus:outline-black"
+          />
+          <span className="inline-flex rounded-r-md bg-neutral-300 px-2 font-semibold text-black">
             %
           </span>
         </div>
@@ -47,8 +117,11 @@ export default function Step3({ step, setStep }) {
       <div className="formInput">
         <label htmlFor="">Vacancy</label>
         <div className="flex">
-          <input type="number" className="rounded-l-md px-1 focus:outline-black" />
-          <span className="inline-flex font-semibold rounded-r-md bg-neutral-300 px-2 text-black">
+          <input
+            type="number"
+            className="w-1/6 rounded-l-md px-1 focus:outline-black"
+          />
+          <span className="inline-flex rounded-r-md bg-neutral-300 px-2 font-semibold text-black">
             %
           </span>
         </div>
@@ -56,8 +129,11 @@ export default function Step3({ step, setStep }) {
       <div className="formInput">
         <label htmlFor="">Capital expenditures</label>
         <div className="flex">
-          <input type="number" className="rounded-l-md px-1 focus:outline-black" />
-          <span className="inline-flex font-semibold rounded-r-md bg-neutral-300 px-2 text-black">
+          <input
+            type="number"
+            className="w-1/6 rounded-l-md px-1 focus:outline-black"
+          />
+          <span className="inline-flex rounded-r-md bg-neutral-300 px-2 font-semibold text-black">
             %
           </span>
         </div>
@@ -65,55 +141,13 @@ export default function Step3({ step, setStep }) {
       <div className="formInput">
         <label htmlFor="">Management fees</label>
         <div className="flex">
-          <input type="number" className="rounded-l-md px-1 focus:outline-black" />
-          <span className="inline-flex font-semibold rounded-r-md bg-neutral-300 px-2 text-black">
+          <input
+            type="number"
+            className="w-1/6 rounded-l-md px-1 focus:outline-black"
+          />
+          <span className="inline-flex rounded-r-md bg-neutral-300 px-2 font-semibold text-black">
             %
           </span>
-        </div>
-      </div>
-      <div className="formInput">
-        <label htmlFor="">HOA fees</label>
-        <div className="flex">
-          <span className="inline-flex rounded-l-md bg-neutral-300 px-2 text-black">
-            $
-          </span>
-          <input type="number" className="rounded-r-md px-1 focus:outline-black" />
-        </div>
-      </div>
-      <div className="formInput">
-        <label htmlFor="">Electricity</label>
-        <div className="flex">
-          <span className="inline-flex rounded-l-md bg-neutral-300 px-2 text-black">
-            $
-          </span>
-          <input type="number" className="rounded-r-md px-1 focus:outline-black" />
-        </div>
-      </div>
-      <div className="formInput">
-        <label htmlFor="">Water & sewer</label>
-        <div className="flex">
-          <span className="inline-flex rounded-l-md bg-neutral-300 px-2 text-black">
-            $
-          </span>
-          <input type="number" className="rounded-r-md px-1 focus:outline-black" />
-        </div>
-      </div>
-      <div className="formInput">
-        <label htmlFor="">Gas</label>
-        <div className="flex">
-          <span className="inline-flex rounded-l-md bg-neutral-300 px-2 text-black">
-            $
-          </span>
-          <input type="number" className="rounded-r-md px-1 focus:outline-black" />
-        </div>
-      </div>
-      <div className="formInput">
-        <label htmlFor="">Garbage</label>
-        <div className="flex">
-          <span className="inline-flex rounded-l-md bg-neutral-300 px-2 text-black">
-            $
-          </span>
-          <input type="number" className="rounded-r-md px-1 focus:outline-black" />
         </div>
       </div>
       <div className="my-4 flex justify-between">
