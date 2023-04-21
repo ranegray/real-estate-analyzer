@@ -13,6 +13,7 @@ export default function NavBar() {
 
   return (
     <>
+      <MobileMenu showMenu={showMenu} toggleMenu={toggleMenu} />
       <header className="flex w-full items-center justify-between border-b-2 border-neutral-700 bg-neutral-900 p-3">
         <Link href={"/"}>
           <h1 className="flex items-center text-3xl font-semibold">
@@ -32,7 +33,6 @@ export default function NavBar() {
           </button>
         </nav>
       </header>
-      <MobileMenu showMenu={showMenu} />
     </>
   );
 }
