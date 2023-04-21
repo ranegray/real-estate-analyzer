@@ -59,7 +59,7 @@ export default function Step2({ step, setStep }) {
             </span>
           </div>
         </div>
-        <div className="flex p-3 justify-between border-t border-neutral-700">
+        <div className="flex justify-between border-t border-neutral-700 p-3">
           <Back step={step} setStep={setStep} />
           <Continue step={step} setStep={setStep} />
         </div>
