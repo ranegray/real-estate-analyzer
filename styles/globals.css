@@ -25,12 +25,3 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-
-input {
-  color: black;
-}
-
-.formInput {
-  display: flex;
-  flex-direction: column;
-}
