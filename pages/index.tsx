@@ -1,12 +1,13 @@
-import { Inter } from 'next/font/google'
-import NewProperty from './newproperty'
+import { Inter } from "next/font/google";
+import Link from "next/link";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main>
-      <NewProperty />
+    <main className="flex flex-col">
+      <Link href="/add">Add property</Link>
+      <Link href="/dashboard">Dashboard</Link>
     </main>
-  )
+  );
 }

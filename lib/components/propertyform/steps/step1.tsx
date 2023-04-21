@@ -1,8 +1,8 @@
 import Continue from "../formbuttons/continue";
 
-export default function Step1({ step, setStep, formData, setFormData }) {
+export default function Step1({ step, setStep, formData, setFormData, handleSubmit }) {
   return (
-    <form className="m-3 flex flex-col">
+    <form className="m-3 flex flex-col" onSubmit={handleSubmit}>
       <div className="rounded-lg border border-neutral-700">
         <div className="h-2 w-full rounded-t-lg bg-black">
           <div className="h-2 rounded-tl-lg rounded-r-lg bg-neutral-700 w-4/12"></div>

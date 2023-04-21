@@ -9,6 +9,10 @@ export default function PropertyForm() {
   const [step2, setStep2] = useState({})
   const [step3, setStep3] = useState({})
 
+  const handleSubmit = (formData) => {
+
+  }
+
   return (
     <div className="">
       {/* property details */}
