@@ -5,6 +5,9 @@ export default function Step3({ step, setStep }) {
   return (
     <form className="m-3 flex flex-col">
       <div className="rounded-lg border border-neutral-700">
+        <div className="h-2 w-full rounded-t-lg bg-black">
+          <div className="h-2 w-11/12 rounded-tl-lg rounded-r-lg bg-neutral-700"></div>
+        </div>
         <h2 className="border-b border-neutral-700 p-3 text-lg font-semibold">
           Expenses
         </h2>
