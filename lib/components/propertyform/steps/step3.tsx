@@ -1,7 +1,7 @@
 import Back from "../formbuttons/back";
 import Submit from "../formbuttons/submit";
 
-export default function Step3({ step, setStep }) {
+export default function Step3({ step, setStep, formData, setFormData }) {
   return (
     <form className="m-3 flex flex-col">
       <div className="rounded-lg border border-neutral-700">

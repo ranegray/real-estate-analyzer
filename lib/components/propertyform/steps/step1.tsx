@@ -1,6 +1,6 @@
 import Continue from "../formbuttons/continue";
 
-export default function Step1({ step, setStep }) {
+export default function Step1({ step, setStep, formData, setFormData }) {
   return (
     <form className="m-3 flex flex-col">
       <div className="rounded-lg border border-neutral-700">
