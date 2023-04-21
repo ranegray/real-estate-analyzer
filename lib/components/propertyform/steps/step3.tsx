@@ -114,50 +114,50 @@ export default function Step3({ step, setStep }) {
       </div>
 
       <div className="border border-neutral-700 rounded-lg">
-        <div className="p-3">
-          <label htmlFor="">Repairs & maintenance</label>
-          <div className="flex">
+        <div className="p-3 border-b border-neutral-700">
+          <label htmlFor="" className="text-sm font-semibold">Repairs & maintenance</label>
+          <div className="flex pt-1">
             <input
               type="number"
-              className="w-1/6 text-black rounded-l-md px-1 focus:outline-black"
+              className="w-1/6 px-1 bg-black border-y border-l rounded-l border-neutral-700 focus:outline-none"
             />
-            <span className="inline-flex rounded-r-md bg-neutral-300 px-2 font-semibold text-black">
+            <span className="inline-flex rounded-r bg-black border border-neutral-700 px-2 text-neutral-400">
+              %
+            </span>
+          </div>
+        </div>
+        <div className="p-3 border-b border-neutral-700">
+          <label htmlFor="" className="text-sm font-semibold">Vacancy</label>
+          <div className="flex pt-1">
+            <input
+              type="number"
+              className="w-1/6 px-1 bg-black border-y border-l rounded-l border-neutral-700 focus:outline-none"
+            />
+            <span className="inline-flex rounded-r bg-black border border-neutral-700 px-2 text-neutral-400">
+              %
+            </span>
+          </div>
+        </div>
+        <div className="p-3 border-b border-neutral-700">
+          <label htmlFor="" className="text-sm font-semibold">Capital expenditures</label>
+          <div className="flex pt-1">
+            <input
+              type="number"
+              className="w-1/6 px-1 bg-black border-y border-l rounded-l border-neutral-700 focus:outline-none"
+            />
+            <span className="inline-flex rounded-r bg-black border border-neutral-700 px-2 text-neutral-400">
               %
             </span>
           </div>
         </div>
         <div className="p-3">
-          <label htmlFor="">Vacancy</label>
-          <div className="flex">
+          <label htmlFor="" className="text-sm font-semibold">Management fees</label>
+          <div className="flex pt-1">
             <input
               type="number"
-              className="w-1/6 text-black rounded-l-md px-1 focus:outline-black"
+              className="w-1/6 px-1 bg-black border-y border-l rounded-l border-neutral-700 focus:outline-none"
             />
-            <span className="inline-flex rounded-r-md bg-neutral-300 px-2 font-semibold text-black">
-              %
-            </span>
-          </div>
-        </div>
-        <div className="p-3">
-          <label htmlFor="">Capital expenditures</label>
-          <div className="flex">
-            <input
-              type="number"
-              className="w-1/6 text-black rounded-l-md px-1 focus:outline-black"
-            />
-            <span className="inline-flex rounded-r-md bg-neutral-300 px-2 font-semibold text-black">
-              %
-            </span>
-          </div>
-        </div>
-        <div className="p-3">
-          <label htmlFor="">Management fees</label>
-          <div className="flex">
-            <input
-              type="number"
-              className="w-1/6 text-black rounded-l-md px-1 focus:outline-black"
-            />
-            <span className="inline-flex rounded-r-md bg-neutral-300 px-2 font-semibold text-black">
+            <span className="inline-flex rounded-r bg-black border border-neutral-700 px-2 text-neutral-400">
               %
             </span>
           </div>
