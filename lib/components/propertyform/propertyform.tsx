@@ -36,7 +36,7 @@ export default function PropertyForm() {
       {/* property details */}
       {step === 1 ? <Step1 step={step} setStep={setStep} handleSubmit={handleSubmit} formData={step1} /> : null}
       {/* mortgage details */}
-      {step === 2 ? <Step2 step={step} setStep={setStep} formData={step2} setFormData={setStep2} /> : null}
+      {step === 2 ? <Step2 step={step} setStep={setStep} handleSubmit={handleSubmit} formData={step2} /> : null}
       {/* expenses details */}
       {step === 3 ? <Step3 step={step} setStep={setStep} formData={step3} setFormData={setStep3} /> : null}
     </div>
