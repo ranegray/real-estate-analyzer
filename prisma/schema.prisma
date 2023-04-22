@@ -24,6 +24,7 @@ model Property {
   name             String
   address          String
   purchasePrice    Float
+  closingCost      Float
   rentalIncome     Float
   expenses         Expense[] // One-to-many relationship with Expense
   mortgage         Mortgage? // One-to-one relationship with Mortgage

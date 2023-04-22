@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function MobileMenu({ showMenu, toggleMenu }) {
   return (
     <div className={`absolute z-10 pt-16 w-full h-screen ${showMenu ? "" : "hidden"}`} onClick={toggleMenu}>
-      <div className="flex flex-col border-b border-b-neutral-700 bg-black px-3 py-2 text-neutral-500">
+      <div className="flex flex-col transition ease-linear border-b border-b-neutral-700 bg-black px-3 py-2 text-neutral-500">
         <Link href={"/dashboard"} className="border-b border-neutral-700 pb-2">
           Dashboard
         </Link>

@@ -9,14 +9,32 @@ export default function PropertyForm() {
   const [step2, setStep2] = useState({})
   const [step3, setStep3] = useState({})
 
-  const handleSubmit = (formData) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // if (!form.checkValidity()) {
+    //   return;
+    // }
+    
+    const form = e.target;
+    const formData = new FormData(form);
 
+    if (step === 1) {
+      setStep1(formData)
+      setStep(2)
+    } else if (step === 2) {
+      setStep2(formData)
+      setStep(3)
+    } else {
+      setStep3(formData)
+    }
+  
   }
 
   return (
     <div className="">
       {/* property details */}
-      {step === 1 ? <Step1 step={step} setStep={setStep} formData={step1} setFormData={setStep1} /> : null}
+      {step === 1 ? <Step1 step={step} setStep={setStep} handleSubmit={handleSubmit} formData={step1} /> : null}
       {/* mortgage details */}
       {step === 2 ? <Step2 step={step} setStep={setStep} formData={step2} setFormData={setStep2} /> : null}
       {/* expenses details */}

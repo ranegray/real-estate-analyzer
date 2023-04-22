@@ -1,9 +1,9 @@
 import Back from "../formbuttons/back";
 import Continue from "../formbuttons/continue";
 
-export default function Step2({ step, setStep, formData, setFormData }) {
+export default function Step2({ step, setStep, formData, handleSubmit }) {
   return (
-    <form className="m-3 flex flex-col">
+    <form className="m-3 flex flex-col" onSubmit={handleSubmit}>
       <div className="rounded-lg border border-neutral-700">
         <div className="h-2 w-full rounded-t-lg bg-black">
           <div className="h-2 w-8/12 rounded-tl-lg rounded-r-lg bg-neutral-700"></div>
@@ -59,7 +59,7 @@ export default function Step2({ step, setStep, formData, setFormData }) {
                 />
                 <label
                   htmlFor="five"
-                  className="rounded-l border border-neutral-700 px-1.5 py-1 text-neutral-400 transition ease-linear peer-checked:bg-neutral-700 peer-checked:text-white"
+                  className="border-y border-neutral-700 px-1.5 py-1 text-neutral-400 transition ease-linear peer-checked:bg-neutral-700 peer-checked:text-white"
                 >
                   5%
                 </label>{" "}
@@ -73,7 +73,7 @@ export default function Step2({ step, setStep, formData, setFormData }) {
                 />
                 <label
                   htmlFor="fifteen"
-                  className="rounded-l border border-neutral-700 px-1.5 py-1 text-neutral-400 transition ease-linear peer-checked:bg-neutral-700 peer-checked:text-white"
+                  className="border border-neutral-700 px-1.5 py-1 text-neutral-400 transition ease-linear peer-checked:bg-neutral-700 peer-checked:text-white"
                 >
                   15%
                 </label>
@@ -87,7 +87,7 @@ export default function Step2({ step, setStep, formData, setFormData }) {
                 />
                 <label
                   htmlFor="twenty"
-                  className="rounded-l border border-neutral-700 px-1.5 py-1 text-neutral-400 transition ease-linear peer-checked:bg-neutral-700 peer-checked:text-white"
+                  className="border-y border-neutral-700 px-1.5 py-1 text-neutral-400 transition ease-linear peer-checked:bg-neutral-700 peer-checked:text-white"
                 >
                   20%
                 </label>
@@ -101,7 +101,7 @@ export default function Step2({ step, setStep, formData, setFormData }) {
                 />
                 <label
                   htmlFor="other"
-                  className="rounded-l border border-neutral-700 px-1.5 py-1 text-neutral-400 transition ease-linear peer-checked:bg-neutral-700 peer-checked:text-white"
+                  className="rounded-r border border-neutral-700 px-1.5 py-1 text-neutral-400 transition ease-linear peer-checked:bg-neutral-700 peer-checked:text-white"
                 >
                   Other
                 </label>
@@ -117,6 +117,7 @@ export default function Step2({ step, setStep, formData, setFormData }) {
             <input
               type="number"
               step={0.01}
+              name="interestRate"
               className="w-1/6 rounded-l border-y border-l border-neutral-700 bg-black px-1 focus:outline-none"
             />
             <span className="inline-flex rounded-r border border-neutral-700 bg-black px-2 text-neutral-400">
@@ -133,14 +134,14 @@ export default function Step2({ step, setStep, formData, setFormData }) {
               <li>
                 <input
                   type="radio"
-                  name="termlength"
+                  name="termYears"
                   id="fifteen_length"
                   value={15}
                   className="peer hidden"
                 />
                 <label
                   htmlFor="fifteen_length"
-                  className="rounded-l border border-neutral-700 px-1.5 py-1 text-neutral-400 transition ease-linear peer-checked:bg-neutral-700 peer-checked:text-white"
+                  className="rounded-l border border-r-0 border-neutral-700 px-1.5 py-1 text-neutral-400 transition ease-linear peer-checked:bg-neutral-700 peer-checked:text-white"
                 >
                   15 yrs
                 </label>
@@ -148,7 +149,7 @@ export default function Step2({ step, setStep, formData, setFormData }) {
               <li>
                 <input
                   type="radio"
-                  name="termlength"
+                  name="termYears"
                   id="thirty_length"
                   value={30}
                   className="peer hidden"

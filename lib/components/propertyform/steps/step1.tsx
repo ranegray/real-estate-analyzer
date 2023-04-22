@@ -1,11 +1,13 @@
 import Continue from "../formbuttons/continue";
 
-export default function Step1({ step, setStep, formData, setFormData, handleSubmit }) {
+export default function Step1({ step, setStep, formData, handleSubmit }) {
+  console.log(formData);
+
   return (
     <form className="m-3 flex flex-col" onSubmit={handleSubmit}>
       <div className="rounded-lg border border-neutral-700">
         <div className="h-2 w-full rounded-t-lg bg-black">
-          <div className="h-2 rounded-tl-lg rounded-r-lg bg-neutral-700 w-4/12"></div>
+          <div className="h-2 w-4/12 rounded-tl-lg rounded-r-lg bg-neutral-700"></div>
         </div>
         <h2 className="border-b border-neutral-700 p-3 text-lg font-semibold">
           Property Details
@@ -18,6 +20,7 @@ export default function Step1({ step, setStep, formData, setFormData, handleSubm
           <div className="flex pt-1">
             <input
               type="text"
+              name="name"
               className="w-3/4 rounded border border-neutral-700 bg-black px-1 focus:outline-none"
             />
           </div>
@@ -30,6 +33,7 @@ export default function Step1({ step, setStep, formData, setFormData, handleSubm
           <div className="flex pt-1">
             <input
               type="text"
+              name="address"
               className="w-3/4 rounded border border-neutral-700 bg-black px-1 focus:outline-none"
             />
           </div>
@@ -45,6 +49,7 @@ export default function Step1({ step, setStep, formData, setFormData, handleSubm
             </span>
             <input
               type="number"
+              name="purchasePrice"
               className="w-4/6 rounded-r border border-l-0 border-neutral-700 bg-black px-1 focus:outline-none"
             />
           </div>
@@ -60,6 +65,7 @@ export default function Step1({ step, setStep, formData, setFormData, handleSubm
             </span>
             <input
               type="number"
+              name="closingCost"
               className="w-4/6 rounded-r border border-l-0 border-neutral-700 bg-black px-1 focus:outline-none"
             />
           </div>
@@ -75,6 +81,7 @@ export default function Step1({ step, setStep, formData, setFormData, handleSubm
             </span>
             <input
               type="number"
+              name="rentalIncome"
               className="w-4/6 rounded-r border border-l-0 border-neutral-700 bg-black px-1 focus:outline-none"
             />
           </div>
