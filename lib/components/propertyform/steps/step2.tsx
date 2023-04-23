@@ -1,7 +1,10 @@
+import { useState } from "react";
 import Back from "../formbuttons/back";
 import Continue from "../formbuttons/continue";
 
 export default function Step2({ step, setStep, formData, handleSubmit }) {
+  const [downPayment, setDownPayment] = useState()
+
   return (
     <form className="m-3 flex flex-col" onSubmit={handleSubmit}>
       <div className="rounded-lg border border-neutral-700">
@@ -27,6 +30,9 @@ export default function Step2({ step, setStep, formData, handleSubmit }) {
           <div className="flex pt-1">
             <input
               type="number"
+              onChange={({ target }) => setDownPayment(target.value)}
+              name="downPayment"
+              value={downPayment}
               className="w-1/6 rounded-l border-y border-l border-neutral-700 bg-black px-1 focus:outline-none"
             />
             <span className="inline-flex rounded-r border border-neutral-700 bg-black px-2 text-neutral-400">
@@ -39,8 +45,10 @@ export default function Step2({ step, setStep, formData, handleSubmit }) {
               <li>
                 <input
                   type="radio"
-                  name="downpayment"
+                  name="downPayment"
                   id="zero"
+                  onChange={() => setDownPayment(0)}
+                  checked={downPayment === 0 ? true : false}
                   className="peer hidden"
                 />
                 <label
@@ -53,8 +61,10 @@ export default function Step2({ step, setStep, formData, handleSubmit }) {
               <li>
                 <input
                   type="radio"
-                  name="downpayment"
+                  name="downPayment"
                   id="five"
+                  onChange={() => setDownPayment(5)}
+                  checked={downPayment === 5 ? true : false}
                   className="peer hidden"
                 />
                 <label
@@ -67,8 +77,10 @@ export default function Step2({ step, setStep, formData, handleSubmit }) {
               <li>
                 <input
                   type="radio"
-                  name="downpayment"
+                  name="downPayment"
                   id="fifteen"
+                  onChange={() => setDownPayment(15)}
+                  checked={downPayment === 15 ? true : false}
                   className="peer hidden"
                 />
                 <label
@@ -81,8 +93,10 @@ export default function Step2({ step, setStep, formData, handleSubmit }) {
               <li>
                 <input
                   type="radio"
-                  name="downpayment"
+                  name="downPayment"
                   id="twenty"
+                  onChange={() => setDownPayment(20)}
+                  checked={downPayment === 20 ? true : false}
                   className="peer hidden"
                 />
                 <label
@@ -95,7 +109,7 @@ export default function Step2({ step, setStep, formData, handleSubmit }) {
               <li>
                 <input
                   type="radio"
-                  name="downpayment"
+                  name="downPayment"
                   id="other"
                   className="peer hidden"
                 />
@@ -151,6 +165,7 @@ export default function Step2({ step, setStep, formData, handleSubmit }) {
                   type="radio"
                   name="termYears"
                   id="thirty_length"
+                  defaultChecked
                   value={30}
                   className="peer hidden"
                 />
