@@ -2,26 +2,50 @@ import { useState } from "react";
 import Back from "../formbuttons/back";
 import Continue from "../formbuttons/continue";
 
-export default function Step2({ step, setStep, formData, handleSubmit }) {
-  const [downPayment, setDownPayment] = useState()
+const regex = /^(?!(0|5|10|20)$)(\d|[1-9]\d|)$/;
+const downPaymentList = ["0", "5", "10", "20", "Other"];
+
+export default function Step2({
+  step,
+  setStep,
+  downPayment,
+  setDownPayment,
+  handleSubmit,
+}) {
+  const [checked, setChecked] = useState(downPayment);
+
+  const handleInput = ({ target }) => {
+    setDownPayment(target.value);
+    setChecked(target.value);
+  };
+
+  const handleRadio = ({ target }) => {
+    setDownPayment(target.value);
+    setChecked(target.value);
+  };
+
+  const handleOther = () => {
+    setDownPayment("");
+    setChecked("");
+  };
 
   return (
     <form className="m-3 flex flex-col" onSubmit={handleSubmit}>
       <div className="rounded-lg border border-neutral-700">
         <div className="h-2 w-full rounded-t-lg bg-black">
-          <div className="h-2 w-8/12 rounded-tl-lg rounded-r-lg bg-neutral-700"></div>
+          <div className="h-2 w-8/12 rounded-r-lg rounded-tl-lg bg-neutral-700"></div>
         </div>
         <h2 className="border-b border-neutral-700 p-3 text-lg font-semibold">
           Mortgage Details
         </h2>
         <div className="border-b border-neutral-700 p-3">
-          <label htmlFor="" className="text-sm font-semibold">
+          <input type="checkbox" id="cashPurchase" className="peer hidden" />
+          <label
+            htmlFor="cashPurchase"
+            className="inline-flex rounded-lg border border-neutral-700 px-2 py-1 text-sm font-semibold peer-checked:bg-white peer-checked:text-black"
+          >
             Cash purchase?
           </label>
-          <input
-            type="checkbox"
-            className=" ml-2 h-4 w-4 border border-neutral-700 bg-black text-black"
-          />
         </div>
         <div className="border-b border-neutral-700 p-3">
           <label htmlFor="" className="text-sm font-semibold">
@@ -30,7 +54,9 @@ export default function Step2({ step, setStep, formData, handleSubmit }) {
           <div className="flex pt-1">
             <input
               type="number"
-              onChange={({ target }) => setDownPayment(target.value)}
+              min={0}
+              max={99}
+              onChange={handleInput}
               name="downPayment"
               value={downPayment}
               className="w-1/6 rounded-l border-y border-l border-neutral-700 bg-black px-1 focus:outline-none"
@@ -42,84 +68,36 @@ export default function Step2({ step, setStep, formData, handleSubmit }) {
             <div className="flex-1"></div>
 
             <ul className="flex items-center text-sm">
-              <li>
-                <input
-                  type="radio"
-                  name="downPayment"
-                  id="zero"
-                  onChange={() => setDownPayment(0)}
-                  checked={downPayment === 0 ? true : false}
-                  className="peer hidden"
-                />
-                <label
-                  htmlFor="zero"
-                  className="rounded-l border border-neutral-700 px-1.5 py-1 text-neutral-400 transition ease-linear peer-checked:bg-neutral-700 peer-checked:text-white"
-                >
-                  0%
-                </label>
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  name="downPayment"
-                  id="five"
-                  onChange={() => setDownPayment(5)}
-                  checked={downPayment === 5 ? true : false}
-                  className="peer hidden"
-                />
-                <label
-                  htmlFor="five"
-                  className="border-y border-neutral-700 px-1.5 py-1 text-neutral-400 transition ease-linear peer-checked:bg-neutral-700 peer-checked:text-white"
-                >
-                  5%
-                </label>{" "}
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  name="downPayment"
-                  id="fifteen"
-                  onChange={() => setDownPayment(15)}
-                  checked={downPayment === 15 ? true : false}
-                  className="peer hidden"
-                />
-                <label
-                  htmlFor="fifteen"
-                  className="border border-neutral-700 px-1.5 py-1 text-neutral-400 transition ease-linear peer-checked:bg-neutral-700 peer-checked:text-white"
-                >
-                  15%
-                </label>
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  name="downPayment"
-                  id="twenty"
-                  onChange={() => setDownPayment(20)}
-                  checked={downPayment === 20 ? true : false}
-                  className="peer hidden"
-                />
-                <label
-                  htmlFor="twenty"
-                  className="border-y border-neutral-700 px-1.5 py-1 text-neutral-400 transition ease-linear peer-checked:bg-neutral-700 peer-checked:text-white"
-                >
-                  20%
-                </label>
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  name="downPayment"
-                  id="other"
-                  className="peer hidden"
-                />
-                <label
-                  htmlFor="other"
-                  className="rounded-r border border-neutral-700 px-1.5 py-1 text-neutral-400 transition ease-linear peer-checked:bg-neutral-700 peer-checked:text-white"
-                >
-                  Other
-                </label>
-              </li>
+              {downPaymentList.map((item) => {
+                return (
+                  <li key={item}>
+                    <input
+                      type="radio"
+                      name="downPayment"
+                      id={item}
+                      onChange={item === "Other" ? handleOther : handleRadio}
+                      value={item === "Other" ? checked : item}
+                      checked={
+                        item === "Other"
+                          ? regex.test(checked)
+                          : checked === item
+                      }
+                      className="peer hidden"
+                    />
+                    <label
+                      htmlFor={item}
+                      className={`${item === "0" ? "rounded-l" : ""} ${
+                        item === "Other" ? "rounded-r" : ""
+                      } border-collapse border border-neutral-700 px-1.5 py-1 text-neutral-400 transition ease-linear peer-checked:bg-neutral-700 peer-checked:text-white`}
+                    >
+                      {item === "Other" ? item : `${item}%`}
+                    </label>
+                  </li>
+                );
+              })}
+
+              {/* value={checked}
+                  checked={regex.test(checked)} */}
             </ul>
           </div>
         </div>

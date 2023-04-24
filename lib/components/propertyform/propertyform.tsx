@@ -5,9 +5,12 @@ import Step3 from "./steps/step3";
 
 export default function PropertyForm() {
   const [step, setStep] = useState(1);
+  // form data state
   const [step1, setStep1] = useState({})
   const [step2, setStep2] = useState({})
   const [step3, setStep3] = useState({})
+  // temp form data state
+  const [downPayment, setDownPayment] = useState('20')
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +39,7 @@ export default function PropertyForm() {
       {/* property details */}
       {step === 1 ? <Step1 step={step} setStep={setStep} handleSubmit={handleSubmit} formData={step1} /> : null}
       {/* mortgage details */}
-      {step === 2 ? <Step2 step={step} setStep={setStep} handleSubmit={handleSubmit} formData={step2} /> : null}
+      {step === 2 ? <Step2 step={step} setStep={setStep} handleSubmit={handleSubmit} downPayment={downPayment} setDownPayment={setDownPayment} /> : null}
       {/* expenses details */}
       {step === 3 ? <Step3 step={step} setStep={setStep} formData={step3} setFormData={setStep3} /> : null}
     </div>
