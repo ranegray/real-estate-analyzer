@@ -3,6 +3,7 @@ import Back from "../formbuttons/back";
 import Continue from "../formbuttons/continue";
 import { CheckIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
+// TODO move these to constants file
 const regex = /^(?!(0|5|10|20)$)(\d|[1-9]\d|)$/;
 const downPaymentList = ["0", "5", "10", "20", "Other"];
 
@@ -80,6 +81,7 @@ export default function Step2({
           >
             Cash purchase
             {step2.cashPayment ? (
+              // BUG when navigating back to page colors of icons are inverted
               <CheckIcon className="ml-1 h-4 w-4 stroke-2 text-black" />
             ) : (
               <XMarkIcon className="ml-1 h-4 w-4 stroke-2 text-white" />
