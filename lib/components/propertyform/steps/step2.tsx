@@ -10,41 +10,41 @@ const downPaymentList = ["0", "5", "10", "20", "Other"];
 export default function Step2({
   step,
   setStep,
-  step2,
-  setStep2,
+  mortgageDetails,
+  setMortgageDetails,
   handleSubmit,
 }) {
-  const [checked, setChecked] = useState(step2.downPayment);
+  const [checked, setChecked] = useState(mortgageDetails.downPayment);
 
   // toggle between paid with cash or not, will dim rest of form
   const toggleCashPayment = () => {
-    setStep2({
-      ...step2,
-      cashPayment: !step2.cashPayment,
+    setMortgageDetails({
+      ...mortgageDetails,
+      cashPayment: !mortgageDetails.cashPayment,
     });
   };
 
   // updates state from termLength and interestRate
   const handleChange = ({ target }) => {
     let name = target.name
-    setStep2({
-      ...step2,
+    setMortgageDetails({
+      ...mortgageDetails,
       [name]: target.value,
     });
   };
 
   // next two handlers are for updating and synchronizing radio % buttons and downPayment input
   const handleInput = ({ target }) => {
-    setStep2({
-      ...step2,
+    setMortgageDetails({
+      ...mortgageDetails,
       downPayment: target.value,
     });
     setChecked(target.value);
   };
 
   const handleRadio = ({ target }) => {
-    setStep2({
-      ...step2,
+    setMortgageDetails({
+      ...mortgageDetails,
       downPayment: target.value,
     });
     setChecked(target.value);
@@ -52,8 +52,8 @@ export default function Step2({
 
   // resets input and state when other is clicked
   const handleOther = () => {
-    setStep2({
-      ...step2,
+    setMortgageDetails({
+      ...mortgageDetails,
       downPayment: "",
     });
     setChecked("");
@@ -80,7 +80,7 @@ export default function Step2({
             className="inline-flex items-center rounded-lg border border-neutral-700 px-2 py-1 text-sm font-semibold transition ease-linear peer-checked:bg-white peer-checked:text-black"
           >
             Cash purchase
-            {step2.cashPayment ? (
+            {mortgageDetails.cashPayment ? (
               // BUG when navigating back to page colors of icons are inverted
               <CheckIcon className="ml-1 h-4 w-4 stroke-2 text-black" />
             ) : (
@@ -91,7 +91,7 @@ export default function Step2({
         <div className="relative">
           <div
             className={`z-9 absolute h-full w-full cursor-pointer bg-neutral-800 opacity-75 ${
-              step2.cashPayment ? "visible" : "invisible"
+              mortgageDetails.cashPayment ? "visible" : "invisible"
             }`}
           ></div>
           <div className="border-b border-neutral-700 p-3">
@@ -105,7 +105,7 @@ export default function Step2({
                 max={99}
                 onChange={handleInput}
                 name="downPayment"
-                value={step2.downPayment}
+                value={mortgageDetails.downPayment}
                 className="w-1/6 rounded-l border-y border-l border-neutral-700 bg-black px-1 focus:outline-none"
               />
               <span className="inline-flex rounded-r border border-neutral-700 bg-black px-2 text-neutral-400">
@@ -152,7 +152,7 @@ export default function Step2({
                 type="number"
                 step={0.01}
                 onChange={handleChange}
-                value={step2.interestRate}
+                value={mortgageDetails.interestRate}
                 name="interestRate"
                 className="w-1/6 rounded-l border-y border-l border-neutral-700 bg-black px-1 focus:outline-none"
               />
@@ -173,7 +173,7 @@ export default function Step2({
                     name="termYears"
                     id="fifteen_length"
                     onChange={handleChange}
-                    checked={step2.termYears === "15"}
+                    checked={mortgageDetails.termYears === "15"}
                     value="15"
                     className="peer hidden"
                   />
@@ -190,7 +190,7 @@ export default function Step2({
                     name="termYears"
                     id="thirty_length"
                     onChange={handleChange}
-                    checked={step2.termYears === "30"}
+                    checked={mortgageDetails.termYears === "30"}
                     value="30"
                     className="peer hidden"
                   />

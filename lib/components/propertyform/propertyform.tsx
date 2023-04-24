@@ -6,8 +6,15 @@ import Step3 from "./steps/step3";
 export default function PropertyForm() {
   const [step, setStep] = useState(1);
   // form data state
-  const [step1, setStep1] = useState({})
-  const [step2, setStep2] = useState({
+  const [propertyDetails, setPropertyDetails] = useState({
+    name: '',
+    address: '',
+    purchasePrice: '',
+    closingCost: '',
+    rentalIncome: '',
+    appreciationRate: '3'
+  })
+  const [mortgageDetails, setMortgageDetails] = useState({
     cashPayment: false,
     downPayment: '20',
     interestRate: '',
@@ -40,9 +47,9 @@ export default function PropertyForm() {
   return (
     <div className="">
       {/* property details */}
-      {step === 1 ? <Step1 step={step} setStep={setStep} handleSubmit={handleSubmit} formData={step1} /> : null}
+      {step === 1 ? <Step1 step={step} setStep={setStep} handleSubmit={handleSubmit} propertyDetails={propertyDetails} setPropertyDetails={setPropertyDetails} /> : null}
       {/* mortgage details */}
-      {step === 2 ? <Step2 step={step} setStep={setStep} handleSubmit={handleSubmit} step2={step2} setStep2={setStep2} /> : null}
+      {step === 2 ? <Step2 step={step} setStep={setStep} handleSubmit={handleSubmit} mortgageDetails={mortgageDetails} setMortgageDetails={setMortgageDetails} /> : null}
       {/* expenses details */}
       {step === 3 ? <Step3 step={step} setStep={setStep} formData={step3} setFormData={setStep3} /> : null}
     </div>
