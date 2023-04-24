@@ -19,7 +19,7 @@ model User {
 
 model Property {
   id               String          @id @default(uuid())
-  userId           String          
+  userId           String
   user             User            @relation(fields: [userId], references: [id])
   name             String
   address          String
@@ -36,13 +36,20 @@ model Property {
 }
 
 model Expense {
-  id         String   @id @default(uuid())
-  propertyId String   
-  property   Property @relation(fields: [propertyId], references: [id])
-  name       String
-  category   String // e.g., "utilities", "maintenance", "taxes", "insurance"
-  amount     Float
-  frequency  String // e.g. "monthly", "quarterly", "annually"
+  id             String   @id @default(uuid())
+  propertyId     String
+  property       Property @relation(fields: [propertyId], references: [id])
+  propertyTaxes  Float
+  insurance      Float
+  hoaFees        Float?
+  electricity    Float?
+  waterAndSewer  Float?
+  gas            Float?
+  garbage        Float?
+  repairs        Float?
+  vacancy        Float?
+  capitalExpend  Float?
+  managementFees Float?
 }
 
 model Mortgage {
@@ -51,7 +58,7 @@ model Mortgage {
   property     Property @relation(fields: [propertyId], references: [id])
   amount       Float // remove this, use purchase price
   interestRate Float
-  termYears    Int 
+  termYears    Int
   downPayment  Float
 }
 

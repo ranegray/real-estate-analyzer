@@ -18,16 +18,15 @@ async function main() {
           expenses: {
             create: [
               {
-                name: "Electricity",
-                category: "utilities",
-                amount: 100,
-                frequency: "monthly",
-              },
-              {
-                name: "Water",
-                category: "utilities",
-                amount: 50,
-                frequency: "monthly",
+                propertyTaxes: 1100,
+                insurance: 457,
+                hoaFees: 235,
+                electricity: 145,
+                garbage: 30,
+                repairs: 0.05,
+                capitalExpend: 0.05,
+                vacancy: 0.05,
+                managementFees: 0.05
               },
             ],
           },
