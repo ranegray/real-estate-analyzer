@@ -10,6 +10,7 @@ export default function PropertyList({ properties = [] }) {
           <h2>{item.name}</h2>
           <h3>{item.address}</h3>
           <p>{item.purchasePrice}</p>
+          <p>{item.analysis}</p>
         </div>
       );
     })
