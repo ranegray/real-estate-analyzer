@@ -56,7 +56,7 @@ export default function PropertyForm() {
   };
 
   return (
-    <div className="">
+    <div className="m-auto sm:w-[640px]">
       {/* property details */}
       {step === 1 ? (
         <Step1
