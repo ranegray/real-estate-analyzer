@@ -9,6 +9,9 @@ export default function PropertyForm() {
   const [propertyDetails, setPropertyDetails] = useState({
     name: "",
     address: "",
+    city: "",
+    state: "",
+    postcode: "",
     purchasePrice: "",
     closingCost: "",
     rentalIncome: "",

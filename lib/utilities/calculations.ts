@@ -30,9 +30,10 @@ calculateMonthlyMortgagePayment(100000, 0.2, 0.05, 10)
 // export const calculateExpenses = (mortgagePayment: number, expenses: number[]) => {
 //     // iterate over object and sum expenses
 //     // has to take calcualteMortgage as well
+//     return mortgagePayment
 // }
 
 // export const calculateCashFlow = (rentalIncome: number, mortgagePayment: number, expenses: number[]) => {
-//     const totalExpenses = calculateExpenses(expenses)
+//     const totalExpenses = calculateExpenses(mortgagePayment, expenses)
 //     return rentalIncome - totalExpenses
 // }
