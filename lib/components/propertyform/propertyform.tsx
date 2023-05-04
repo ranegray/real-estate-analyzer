@@ -5,7 +5,6 @@ import Step3 from "./steps/step3";
 
 export default function PropertyForm() {
   const [step, setStep] = useState(1);
-  // form data state
   const [propertyDetails, setPropertyDetails] = useState({
     name: "",
     address: "",
@@ -15,7 +14,7 @@ export default function PropertyForm() {
     purchasePrice: "",
     closingCost: "",
     rentalIncome: "",
-    appreciationRate: "3",
+    appreciationRate: "",
   });
   const [mortgageDetails, setMortgageDetails] = useState({
     cashPayment: false,
@@ -47,14 +46,10 @@ export default function PropertyForm() {
     // const form = e.target;
     // const formData = new FormData(form);
 
-    if (step === 1) {
-      // setStep1(formData)
-      setStep(2);
-    } else if (step === 2) {
-      // setStep2(formData)
-      setStep(3);
+    if (step === 1 ||  step === 2) {
+      setStep(step + 1);
     } else {
-      // setStep3(formData)
+      // add fetch to post data to api endpoint
     }
   };
 
