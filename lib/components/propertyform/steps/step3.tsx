@@ -58,6 +58,7 @@ export default function Step3({
                   step={0.01}
                   name={item.dataName}
                   id={item.dataName}
+                  onChange={handleChange}
                   value={expenseDetails.dataName}
                   required
                   className="w-1/4 border-b border-t border-b-neutral-700 border-t-neutral-700 bg-black px-1 focus:outline-none"
@@ -85,6 +86,7 @@ export default function Step3({
                   step={0.01}
                   name={item.dataName}
                   id={item.dataName}
+                  onChange={handleChange}
                   value={expenseDetails.dataName}
                   required
                   className="w-1/4 border-b border-t border-b-neutral-700 border-t-neutral-700 bg-black px-1 focus:outline-none"
@@ -112,6 +114,7 @@ export default function Step3({
                   step={0.01}
                   name={item.dataName}
                   id={item.dataName}
+                  onChange={handleChange}
                   value={expenseDetails.dataName}
                   className="w-1/4 border-b border-t border-b-neutral-700 border-t-neutral-700 bg-black px-1 focus:outline-none"
                 />
@@ -143,6 +146,7 @@ export default function Step3({
                   type="number"
                   name={item.dataName}
                   id={item.dataName}
+                  onChange={handleChange}
                   value={expenseDetails.dataName}
                   className="w-1/6 rounded-l border-y border-l border-neutral-700 bg-black px-1 focus:outline-none"
                 />
