@@ -23,6 +23,9 @@ model Property {
   user             User            @relation(fields: [userId], references: [id])
   name             String
   address          String
+  city             String
+  state            String
+  postcode         String
   purchasePrice    Float
   closingCost      Float
   rentalIncome     Float

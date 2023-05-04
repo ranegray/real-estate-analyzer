@@ -12,6 +12,9 @@ async function main() {
         create: {
           name: "Sample Property",
           address: "123 Main St",
+          city: "Sampletown",
+          state: "CA",
+          postcode: "91020",
           purchasePrice: 250000,
           closingCost: 14000,
           rentalIncome: 2000,
