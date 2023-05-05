@@ -18,6 +18,7 @@ export default function Step2({
 
   // toggle between paid with cash or not, will dim rest of form
   const toggleCashPayment = () => {
+    // TODO add if cash payment, undefined rest of state
     setMortgageDetails({
       ...mortgageDetails,
       cashPayment: !mortgageDetails.cashPayment,
@@ -29,7 +30,7 @@ export default function Step2({
     let name = target.name
     setMortgageDetails({
       ...mortgageDetails,
-      [name]: target.value,
+      [name]: Number(target.value),
     });
   };
 
@@ -37,7 +38,7 @@ export default function Step2({
   const handleInput = ({ target }) => {
     setMortgageDetails({
       ...mortgageDetails,
-      downPayment: target.value,
+      downPayment: Number(target.value),
     });
     setChecked(target.value);
   };
@@ -45,7 +46,7 @@ export default function Step2({
   const handleRadio = ({ target }) => {
     setMortgageDetails({
       ...mortgageDetails,
-      downPayment: target.value,
+      downPayment: Number(target.value),
     });
     setChecked(target.value);
   };
@@ -173,8 +174,8 @@ export default function Step2({
                     name="termYears"
                     id="fifteen_length"
                     onChange={handleChange}
-                    checked={mortgageDetails.termYears === "15"}
-                    value="15"
+                    checked={mortgageDetails.termYears == "15"}
+                    value={15}
                     className="peer hidden"
                   />
                   <label
@@ -190,8 +191,8 @@ export default function Step2({
                     name="termYears"
                     id="thirty_length"
                     onChange={handleChange}
-                    checked={mortgageDetails.termYears === "30"}
-                    value="30"
+                    checked={mortgageDetails.termYears == "30"}
+                    value={30}
                     className="peer hidden"
                   />
                   <label

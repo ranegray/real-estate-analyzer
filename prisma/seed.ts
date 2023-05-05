@@ -35,7 +35,6 @@ async function main() {
           },
           mortgage: {
             create: {
-              amount: 200000,
               interestRate: 3.5,
               termYears: 30,
               downPayment: 50000,

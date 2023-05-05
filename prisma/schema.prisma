@@ -59,7 +59,6 @@ model Mortgage {
   id           String   @id @default(uuid())
   propertyId   String   @unique
   property     Property @relation(fields: [propertyId], references: [id])
-  amount       Float // remove this, use purchase price
   interestRate Float
   termYears    Int
   downPayment  Float

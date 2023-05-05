@@ -11,7 +11,7 @@ export default async function property (req, res) {
             
             const property = await prisma.property.create({
                 data: {
-                    userId: '0f497ee7-5b0d-4d51-ace9-4704bbaa61f6',
+                    userId: '258b93e4-eebe-4732-8aa9-56824ce79142',
                     name: propertyDetails.name,
                     address: propertyDetails.address,
                     city: propertyDetails.city,
@@ -39,7 +39,6 @@ export default async function property (req, res) {
                     },
                     mortgage: {
                         create: {
-                            amount: mortgageDetails.amount,
                             interestRate: mortgageDetails.interestRate,
                             downPayment: mortgageDetails.downPayment,
                             termYears: mortgageDetails.termYears,

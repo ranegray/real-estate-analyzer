@@ -30,7 +30,7 @@ export default function Step3({
     const name = target.name;
     setExpenseDetails({
       ...expenseDetails,
-      [name]: target.value,
+      [name]: Number(target.value),
     });
   };
 

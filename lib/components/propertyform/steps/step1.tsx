@@ -67,10 +67,20 @@ export default function Step1({
 
   const handleChange = ({ target }) => {
     const name = target.name
-    setPropertyDetails({
-      ...propertyDetails,
-      [name]: target.value,
-    });
+    const type = target.type
+
+    if (type == 'number') {
+      setPropertyDetails({
+        ...propertyDetails,
+        [name]: Number(target.value),
+      });
+    } else {
+      setPropertyDetails({
+        ...propertyDetails,
+        [name]: target.value,
+      });
+    }
+
   };
   
   const handleAutoComplete = ({ target }) => {

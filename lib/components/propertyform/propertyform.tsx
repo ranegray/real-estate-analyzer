@@ -11,16 +11,16 @@ export default function PropertyForm() {
     city: "",
     state: "",
     postcode: "",
-    purchasePrice: null,
-    closingCost: null,
-    rentalIncome: null,
-    appreciationRate: null,
+    purchasePrice: "",
+    closingCost: "",
+    rentalIncome: "",
+    appreciationRate: "",
   });
   const [mortgageDetails, setMortgageDetails] = useState({
     cashPayment: false,
-    downPayment: "20",
+    downPayment: 20,
     interestRate: "",
-    termYears: "30",
+    termYears: 30,
   });
   const [expenseDetails, setExpenseDetails] = useState({
     propertyTaxes: "",
@@ -30,9 +30,9 @@ export default function PropertyForm() {
     waterAndSewer: "",
     gas: "",
     garbage: "",
-    repairs: "5",
-    vacancy: "5",
-    capitalExpend: "5",
+    repairs: "",
+    vacancy: "",
+    capitalExpend: "",
     managementFees: "",
   });
 
