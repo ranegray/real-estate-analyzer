@@ -66,12 +66,13 @@ export default function Step1({
   ];
 
   const handleChange = ({ target }) => {
-    const name = target.name;
+    const name = target.name
     setPropertyDetails({
       ...propertyDetails,
       [name]: target.value,
     });
   };
+  
   const handleAutoComplete = ({ target }) => {
     setPropertyDetails({
       ...propertyDetails,

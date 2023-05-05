@@ -11,10 +11,10 @@ export default function PropertyForm() {
     city: "",
     state: "",
     postcode: "",
-    purchasePrice: "",
-    closingCost: "",
-    rentalIncome: "",
-    appreciationRate: "",
+    purchasePrice: null,
+    closingCost: null,
+    rentalIncome: null,
+    appreciationRate: null,
   });
   const [mortgageDetails, setMortgageDetails] = useState({
     cashPayment: false,
@@ -39,17 +39,28 @@ export default function PropertyForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // if (!form.checkValidity()) {
-    //   return;
-    // }
+    const createProperty = (data) => {
+      fetch("/api/property", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+    };
 
-    // const form = e.target;
-    // const formData = new FormData(form);
-
-    if (step === 1 ||  step === 2) {
+    if (step === 1) {
+      setStep(step + 1);
+    } else if (step === 2) {
       setStep(step + 1);
     } else {
-      // add fetch to post data to api endpoint
+      let formData = {
+        propertyDetails,
+        mortgageDetails,
+        expenseDetails,
+      };
+
+      createProperty(formData);
     }
   };
 
