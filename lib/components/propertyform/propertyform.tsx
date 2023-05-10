@@ -2,6 +2,7 @@ import { useState } from "react";
 import Step1 from "./steps/step1";
 import Step2 from "./steps/step2";
 import Step3 from "./steps/step3";
+import { useRouter } from "next/router";
 
 export default function PropertyForm() {
   const [step, setStep] = useState(1);
@@ -35,17 +36,21 @@ export default function PropertyForm() {
     capitalExpend: "",
     managementFees: "",
   });
+  const router = useRouter()
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const createProperty = (data) => {
+    const createProperty = (formData) => {
       fetch("/api/property", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(formData),
+      }).then(res => res.json()).then(data => {
+        console.log(data)
+        router.push(`/property/${data.id}`)
       });
     };
 

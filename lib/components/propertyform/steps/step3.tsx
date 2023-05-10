@@ -6,7 +6,7 @@ const expenseCategories = {
   insurance: [{ name: "Insurance", dataName: "insurance" }],
   utilities: [
     { name: "HOA fees", dataName: "hoaFees" },
-    { name: "Electricity", dataName: "electricty" },
+    { name: "Electricity", dataName: "electricity" },
     { name: "Water & sewer", dataName: "waterAndSewer" },
     { name: "Gas", dataName: "gas" },
     { name: "Garbage", dataName: "garbage" },

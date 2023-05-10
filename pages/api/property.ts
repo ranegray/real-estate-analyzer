@@ -1,13 +1,23 @@
 import { PrismaClient } from '@prisma/client';
+import { calculateCashFlow } from '@/lib/utilities/calculations';
 
 const prisma = new PrismaClient();
 
 export default async function property (req, res) {
     console.log(req.body)
+
+
     
     if (req.method === 'POST')  {
         try {
             const { propertyDetails, mortgageDetails, expenseDetails } = req.body
+            let { insurance, propertyTaxes, repairs, capitalExpend, vacancy, managementFees, ...expenses } = expenseDetails
+            propertyTaxes = propertyTaxes / 12
+            insurance = insurance / 12
+            repairs = (repairs / 100) * propertyDetails.rentalIncome
+            capitalExpend = (capitalExpend / 100) * propertyDetails.rentalIncome
+            vacancy = (vacancy / 100) * propertyDetails.rentalIncome
+            managementFees = (managementFees / 100) * propertyDetails.rentalIncome
             
             const property = await prisma.property.create({
                 data: {
@@ -23,17 +33,17 @@ export default async function property (req, res) {
                     expenses: {
                         create: [
                             {
-                                propertyTaxes: expenseDetails.propertyTaxes,
-                                insurance: expenseDetails.insurance,
+                                propertyTaxes: propertyTaxes,
+                                insurance: insurance,
                                 hoaFees: expenseDetails.hoaFees,
-                                electricity: expenseDetails.insurance,
+                                electricity: expenseDetails.electricity,
                                 garbage: expenseDetails.garbage,
                                 gas: expenseDetails.gas,
                                 waterAndSewer: expenseDetails.waterAndSewer,
-                                repairs: expenseDetails.repairs,
-                                capitalExpend: expenseDetails.capitalExpend,
-                                vacancy: expenseDetails.vacancy,
-                                managementFees: expenseDetails.managementFees,
+                                repairs: repairs,
+                                capitalExpend: capitalExpend,
+                                vacancy: vacancy,
+                                managementFees: managementFees,
                             },
                         ],
                     },
@@ -45,10 +55,23 @@ export default async function property (req, res) {
                         },
                     },
                     appreciationRate: propertyDetails.appreciationRate,
+                    analysis: {
+                        create: {
+                            cashFlow: calculateCashFlow(
+                                propertyDetails.rentalIncome,
+                                propertyDetails.purchasePrice,
+                                mortgageDetails.downPayment,
+                                mortgageDetails.interestRate,
+                                mortgageDetails.termYears,
+                                {...expenses, insurance, propertyTaxes, repairs, capitalExpend, vacancy, managementFees}
+                            ),
+                        }
+                    }
                 },
                 include: {
                     expenses: true,
-                    mortgage: true
+                    mortgage: true,
+                    analysis: true,
                 }
             });
             res.status(200).json(property)

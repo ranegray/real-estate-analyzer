@@ -6,7 +6,7 @@ export default function PropertyList({ properties = [] }) {
     style: "currency",
     currency: "USD",
   });
-
+  console.log(properties)
   return isEmpty ? (
     <p>You're not tracking any properties</p>
   ) : (
@@ -20,8 +20,8 @@ export default function PropertyList({ properties = [] }) {
               {item.city}, {item.state}
             </p>
             <p>{formatCurrency.format(item.purchasePrice)}</p>
-            <p>Cash flow: {item.analysis}</p>
-            <p>CoC ROI: {item.analysis}</p>
+            {item.analysis && <p>Cash flow: {formatCurrency.format(item.analysis.cashFlow)}</p>}
+            {/* <p>CoC ROI: {item.analysis}</p> */}
           </Link>
         </div>
       );
