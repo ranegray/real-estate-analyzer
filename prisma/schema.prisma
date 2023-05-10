@@ -69,5 +69,6 @@ model AnalysisResult {
   propertyId    String   @unique
   property      Property @relation(fields: [propertyId], references: [id])
   capRate       Float
+  cashFlow       Float
   cashOnCashRoi Float // add cash flow
 }
