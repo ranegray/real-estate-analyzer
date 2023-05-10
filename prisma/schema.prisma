@@ -68,7 +68,7 @@ model AnalysisResult {
   id            String   @id @default(uuid())
   propertyId    String   @unique
   property      Property @relation(fields: [propertyId], references: [id])
-  capRate       Float
-  cashFlow       Float
-  cashOnCashRoi Float // add cash flow
+  capRate       Float?
+  cashFlow      Float
+  cashOnCashRoi Float?
 }

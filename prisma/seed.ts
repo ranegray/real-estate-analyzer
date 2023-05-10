@@ -26,10 +26,10 @@ async function main() {
                 hoaFees: 235,
                 electricity: 145,
                 garbage: 30,
-                repairs: 0.05,
-                capitalExpend: 0.05,
-                vacancy: 0.05,
-                managementFees: 0.05
+                repairs: 0.05 * 2000,
+                capitalExpend: 0.05 * 2000,
+                vacancy: 0.05 * 2000,
+                managementFees: 0.05 * 2000
               },
             ],
           },
